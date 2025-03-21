@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Child from './components/Child'
 import User from './components/User'
+import Users from './components/Users'
 import { useSelector, useDispatch } from 'react-redux'
 import { 
   incrementCount, 
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <>
-      <div style={styles.container}>
+      {/* <div style={styles.container}>
         <h1>Parent</h1>
         <p>Count: {count}</p>
         <button
@@ -53,7 +54,8 @@ function App() {
         </button>
         <Child />
       </div>
-      <User />
+      <User /> */}
+      <Users />
     </>
   )
 }
