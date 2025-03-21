@@ -1,5 +1,6 @@
 import './App.css'
 import Child from './components/Child'
+import User from './components/User'
 import { useSelector, useDispatch } from 'react-redux'
 import { incrementCount, decrementCount } from './store/actions/counter'
 
@@ -12,25 +13,28 @@ const styles = {
 }
 
 function App() {
-  const count = useSelector((state) => state.count)
+  const count = useSelector((state) => state.counter.count)
   const dispatch = useDispatch()
 
   return (
-    <div style={styles.container}>
-      <h1>Parent</h1>
-      <p>Count: {count}</p>
-      <button
-        onClick={() => dispatch(incrementCount())}
-      >
-        Increment
-      </button>
-      <button
-        onClick={() => dispatch(decrementCount())}
-      >
-        Decrement
-      </button>
-      <Child />
-    </div>
+    <>
+      <div style={styles.container}>
+        <h1>Parent</h1>
+        <p>Count: {count}</p>
+        <button
+          onClick={() => dispatch(incrementCount())}
+        >
+          Increment
+        </button>
+        <button
+          onClick={() => dispatch(decrementCount())}
+        >
+          Decrement
+        </button>
+        <Child />
+      </div>
+      <User />
+    </>
   )
 }
 

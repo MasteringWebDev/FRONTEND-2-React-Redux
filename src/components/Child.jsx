@@ -10,7 +10,7 @@ const styles = {
 }
 
 const Child = () => {
-  const count = useSelector((state) => state.count)
+  const count = useSelector((state) => state.counter.count)
 
   return (
     <div style={styles.container}>
