@@ -1,6 +1,7 @@
 import {
   INCREMENT,
-  DECREMENT
+  DECREMENT,
+  INCREMENT_CUSTOM
 } from '../actions/counter'
 
 const initialState = {
@@ -18,6 +19,11 @@ const counterReducer = (state = initialState, action) => {
       return {
         ...state,
         count: state.count - 1
+      }
+    case INCREMENT_CUSTOM:
+      return {
+        ...state,
+        count: state.count + action.payload
       }
     default:
       return state

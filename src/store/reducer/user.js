@@ -17,22 +17,22 @@ const userReducer = (state = initialState, action) => {
     case UPDATE_NAME: 
       return {
         ...state,
-        name: 'Kiran Nyayapati'
+        name: action.payload
       }
     case UPDATE_EMAIL:
       return {
         ...state,
-        email: 'kiran@example.com'
+        email:  action.payload
       }
     case UPDATE_PHONE:
       return {
        ...state,
-        phone: '987-654-3210'
+        phone: action.payload
       }
     case UPDATE_ADDRESS:
       return {
         ...state,
-        address: '456 Elm St, Anytown, USA'
+        address: action.payload
       }
     default:
       return state

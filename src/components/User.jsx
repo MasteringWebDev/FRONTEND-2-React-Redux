@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import {
   updateName,
@@ -9,6 +10,7 @@ import {
 const User = () => {
   const user = useSelector((state) => state.user)
   const dipatch = useDispatch()
+  const [updateText, setUpdateText] = useState('')
 
   return (
     <div>
@@ -18,18 +20,32 @@ const User = () => {
       <p>Phone: {user.phone}</p>
       <p>Address: {user.address}</p>
 
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '10px'
+        }}
+      >
+        <input 
+          type="text" 
+          placeholder="Enter name/email/phone/address" 
+          value={updateText}
+          onInput={(e) => setUpdateText(e.target.value)}
+        />
         <button
-          onClick={() => dipatch(updateName())}
+          onClick={() => dipatch(updateName(updateText))}
         >Update name</button>
         <button
-          onClick={() => dipatch(updateEmail())}
+          onClick={() => dipatch(updateEmail(updateText))}
         >Update email</button>
         <button
-          onClick={() => dipatch(updatePhone())}
+          onClick={() => dipatch(updatePhone(updateText))}
         >Update phone</button>
         <button
-          onClick={() => dipatch(updateAddress())}
+          onClick={() => dipatch(updateAddress(updateText))}
         >Update address</button>
       </div>
     </div>
